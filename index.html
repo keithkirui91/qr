@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="profiledetails">
+                <img src="images/oildrop.jpg" alt="Company Logo" class="profilepic">
+                <p>session{Name}</p>
+            </div>
+            <img src="images/flagdrc.webp" alt="DRC Flag" class="flag">
+            <h1>Oil Shipment QR Code System</h1>
+            <img src="images/oildrop.jpg" alt="Company Logo" class="logo">
+        </div>
+    </header>
+    
+    <!-- Image above the form with rounded corners -->
+    <img src="images/qr_1743314735.png" alt="Shipment Image" class="image-provision">
+
+    <div class="container">
+        <h2>Shipment Information Form</h2>
+        <form action="generate_qr.php" method="POST">
+            <div class="form-group">
+                <label for="no">No:</label>
+                <input type="text" id="no" name="no" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nif">NIF:</label>
+                <input type="text" id="nif" name="nif" required>
+            </div>
+
+            <div class="form-group">
+                <label for="importer">Importer:</label>
+                <input type="text" id="importer" name="importer" required>
+            </div>
+
+            <div class="form-group">
+                <label for="exporter">Exporter:</label>
+                <input type="text" id="exporter" name="exporter" required>
+            </div>
+
+            <div class="form-group">
+                <label for="truck_no">Truck No:</label>
+                <input type="text" id="truck_no" name="truck_no" required>
+            </div>
+
+            <div class="form-group">
+                <label for="volume">Volume:</label>
+                <input type="text" id="volume" name="volume" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product">Product:</label>
+                <select id="product" name="product" required>
+                    <option value="Pms">Pms</option>
+                    <option value="AOG">AOG</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="destination">Destination:</label>
+                <select id="destination" name="destination" required>
+                    <option value="Kinshasa">Kinshasa</option>
+                    <option value="Lubumbashi">Lubumbashi</option>
+                    <option value="Matadi">Matadi</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <button type="submit">Generate QR Code</button>
+        </form>
+        
+       <br>
+
+</body><!-- Button to go to entries list -->
+       
+        <a href="entries.php">
+            <button>View Entries</button>
+        </a>
+<br>
+    </div>
+<br>
+<footer>
+    <p>DRC Congo Oil Logistics. Copyright  &copy; 2025 OMC / Exporter.</p>
+    <p style="font-family: cursive;">"Empowering trade in Central Africa"</p>
+</footer>
+</html>

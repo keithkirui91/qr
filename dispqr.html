@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2rem;
+        }
+
+        img {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .action-buttons {
+            margin-top: 30px;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Your QR Code</h1>
+        
+        <!-- Check if QR code file exists -->
+        <?php
+        if (isset($_GET['qr_code'])) {
+            $qr_code_file = "qr_codes/" . basename($_GET['qr_code']);
+            if (file_exists($qr_code_file)) {
+                echo '<img src="' . $qr_code_file . '" alt="QR Code" />';
+            } else {
+                echo "<p>QR Code not found.</p>";
+            }
+        }
+        ?>
+
+        <div class="action-buttons">
+            <!-- Button to print the QR code -->
+            <button onclick="window.print()">Print QR Code</button>
+
+            <!-- Button to download the QR code -->
+            <a href="qr_codes/<?php echo htmlspecialchars($_GET['qr_code']); ?>" download>
+                <button>Download QR Code</button>
+            </a>
+
+            <!-- Button to go back to Home (index.html) -->
+            <a href="index.html">
+                <button>Back Home</button>
+            </a>
+
+            <!-- Button to view all entries from the database -->
+            <a href="entries.php">
+                <button>View Entries</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+<br>
+<footer>
+    <p>DRC Congo Oil Logistics. Copyright  &copy; 2025 OMC / Exporter.</p>
+    <p style="font-family: cursive;">"Empowering trade in Central Africa"</p>
+</footer>
+</html>
